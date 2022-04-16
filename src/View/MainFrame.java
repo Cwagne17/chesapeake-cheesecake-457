@@ -10,14 +10,12 @@ public class MainFrame extends JFrame {
         super("Java Swing MVC");
         cardLayout = new CardLayout();
         Form form = new Form();
-        TestForm testform = new TestForm();
 
         setLayout(cardLayout);
 
         add(form,"form");
-        add(testform, "test");
 
-        cardLayout.show(MainFrame.this.getContentPane(), "test");
+        cardLayout.show(MainFrame.this.getContentPane(), "form");
 
         setSize(1200, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

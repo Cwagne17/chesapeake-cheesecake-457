@@ -1,2 +1,7 @@
-package Config.errors;public class StringException {
+package Config.errors;
+
+public class StringException extends Exception {
+    public StringException(String msg) {
+        super(msg);
+    }
 }
