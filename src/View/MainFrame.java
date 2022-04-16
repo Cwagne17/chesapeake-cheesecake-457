@@ -20,7 +20,6 @@ public class MainFrame extends JFrame {
         add(form,"form");
         add(testform, "test");
 
-
         cardLayout.show(MainFrame.this.getContentPane(), "test");
 
         setSize(1200, 700);
