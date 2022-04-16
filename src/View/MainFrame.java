@@ -1,5 +1,7 @@
 package View;
 
+import View.Client.ClientDashboard;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,11 +13,13 @@ public class MainFrame extends JFrame {
         cardLayout = new CardLayout();
         Form form = new Form();
         TestForm testform = new TestForm();
+        ClientDashboard clientDash = new ClientDashboard();
 
         setLayout(cardLayout);
 
         add(form,"form");
         add(testform, "test");
+
 
         cardLayout.show(MainFrame.this.getContentPane(), "test");
 
