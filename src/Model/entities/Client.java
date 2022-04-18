@@ -8,10 +8,13 @@ import java.util.Arrays;
 
 public class Client {
     private String email_addr;
+    private String spouse1_name;
+    private String spouse2_name;
+    private String name;
     private String phys_addr;
     private String phone_num;
     private String pref_contact;
-    private boolean is_individual;
+    private int is_individual;
 
     public Client() {}
 
@@ -19,6 +22,9 @@ public class Client {
     public String toString() {
         return "Client{" +
                 "email_addr='" + email_addr + '\'' +
+                ", spouse1_name='" + spouse1_name + '\'' +
+                ", spouse2_name='" + spouse2_name + '\'' +
+                ", name='" + name + '\'' +
                 ", phys_addr='" + phys_addr + '\'' +
                 ", phone_num='" + phone_num + '\'' +
                 ", pref_contact='" + pref_contact + '\'' +
@@ -29,6 +35,18 @@ public class Client {
     public ArrayList<String> getAttributeNames() {
         String[] attributes = {"email_addr", "phys_addr", "phone_num", "pref_contact", "is_individual"};
         return new ArrayList<String>(Arrays.asList(attributes));
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSpouse1_name() {
+        return spouse1_name;
+    }
+
+    public String getSpouse2_name() {
+        return spouse2_name;
     }
 
     public String getEmail_addr() {
@@ -47,7 +65,7 @@ public class Client {
         return pref_contact;
     }
 
-    public boolean isIs_individual() {
+    public int getIs_individual() {
         return is_individual;
     }
 
@@ -68,6 +86,15 @@ public class Client {
             case "is_individual":
                 this.setIs_individual(value.equals("1"));
                 break;
+            case "name":
+                this.setName(value);
+                break;
+            case "spouse1_name":
+                this.setSpouse1_name(value);
+                break;
+            case "spouse2_name":
+                this.setSpouse2_name(value);
+                break;
             default:
                 throw new StringException(String.format("INTERNAL SERVICE ERROR, %s does not exist on type Client.", key));
         }
@@ -76,6 +103,24 @@ public class Client {
     private void setEmail_addr(String key, String email_addr) throws StringException {
         Validator.isNullEmpty(key, email_addr);
         this.email_addr = email_addr;
+    }
+
+    public void setName(String name) {
+        if (name == null)
+            name = "";
+        this.name = name;
+    }
+
+    private void setSpouse1_name(String spouse1_name) {
+        if (spouse1_name == null)
+            spouse1_name = "";
+        this.spouse1_name = spouse1_name;
+    }
+
+    private void setSpouse2_name(String spouse2_name) {
+        if (spouse2_name == null)
+            spouse2_name = "";
+        this.spouse2_name = spouse2_name;
     }
 
     private void setPhys_addr(String key, String phys_addr) throws StringException {
@@ -97,7 +142,7 @@ public class Client {
         this.pref_contact = pref_contact;
     }
 
-    private void setIs_individual(boolean is_individual) throws StringException {
-        this.is_individual = is_individual;
+    private void setIs_individual(boolean is_individual) {
+        this.is_individual = is_individual ? 1 : 0;
     }
 }

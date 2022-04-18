@@ -9,4 +9,8 @@ public class Validator {
             throw new StringException(String.format("BAD REQUEST, %s is empty or null", key));
         }
     }
+
+    public static boolean exists(String value) {
+        return (value != null && !value.isEmpty());
+    }
 }

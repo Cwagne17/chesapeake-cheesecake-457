@@ -1,10 +1,5 @@
-import Config.ConnectionManager;
 import Model.entities.Client;
-import Model.entities.WeddingClient;
-import View.MainFrame;
 
-import javax.swing.*;
-import java.sql.Connection;
 import Model.ClientModel;
 
 public class App {
