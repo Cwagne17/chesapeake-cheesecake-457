@@ -33,7 +33,7 @@ public class Client {
     }
 
     public ArrayList<String> getAttributeNames() {
-        String[] attributes = {"email_addr", "phys_addr", "phone_num", "pref_contact", "is_individual"};
+        String[] attributes = {"email_addr", "phys_addr", "phone_num", "pref_contact", "is_individual", "name", "spouse1_name", "spouse2_name"};
         return new ArrayList<String>(Arrays.asList(attributes));
     }
 
