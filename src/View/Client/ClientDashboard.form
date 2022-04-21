@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.Client.ClientDashboard">
   <grid id="27dc6" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="614" height="431"/>
+      <xy x="20" y="20" width="652" height="431"/>
     </constraints>
     <properties/>
     <border type="none" title="1"/>
@@ -28,7 +28,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="deliveryTime"/>
+          <text value="first name"/>
         </properties>
       </component>
       <component id="30f6e" class="javax.swing.JLabel">
@@ -37,7 +37,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value=" num_of_guests"/>
+          <text value="last name"/>
         </properties>
       </component>
       <component id="3d762" class="javax.swing.JLabel">
@@ -46,7 +46,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="    allergies"/>
+          <text value="email address"/>
         </properties>
       </component>
       <component id="e79e1" class="javax.swing.JLabel">
@@ -55,7 +55,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="delivery address"/>
+          <text value="physical address"/>
         </properties>
       </component>
       <component id="b0a3" class="javax.swing.JLabel">
@@ -64,16 +64,16 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value=" email address"/>
+          <text value="phone number"/>
         </properties>
       </component>
-      <component id="a6aae" class="javax.swing.JButton" binding="addEventButton" default-binding="true">
+      <component id="a6aae" class="javax.swing.JButton" binding="addClientButton" default-binding="true">
         <constraints>
           <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Add Event"/>
+          <text value="Add Client"/>
         </properties>
       </component>
       <component id="f227c" class="javax.swing.JList" binding="list1" default-binding="true">
@@ -85,15 +85,15 @@
         </constraints>
         <properties>
           <model>
-            <item value="24:00 "/>
-            <item value="24:00"/>
-            <item value="24:00"/>
-            <item value="24:00"/>
-            <item value="24:00"/>
-            <item value="24:00"/>
-            <item value="24:00"/>
-            <item value="24:00"/>
-            <item value="24:00"/>
+            <item value="person1"/>
+            <item value="person1"/>
+            <item value="person1"/>
+            <item value="person1"/>
+            <item value="person1"/>
+            <item value="person1"/>
+            <item value="person1"/>
+            <item value="person1"/>
+            <item value="person1"/>
           </model>
         </properties>
       </component>
@@ -106,15 +106,15 @@
         </constraints>
         <properties>
           <model>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
-            <item value="eggs, sugar"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
+            <item value="test@gmail.com"/>
           </model>
         </properties>
       </component>
@@ -127,15 +127,15 @@
         </constraints>
         <properties>
           <model>
-            <item value="5"/>
-            <item value="5"/>
-            <item value="5"/>
-            <item value="5"/>
-            <item value="5"/>
-            <item value="5"/>
-            <item value="5"/>
-            <item value="5"/>
-            <item value="5"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
+            <item value="person1 lastname"/>
           </model>
         </properties>
       </component>
@@ -148,15 +148,15 @@
         </constraints>
         <properties>
           <model>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
-            <item value="test@gmail.com"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
+            <item value="1-111-111-1111"/>
           </model>
         </properties>
       </component>
@@ -187,7 +187,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Events Dashboard"/>
+          <text value="Client Dashboard"/>
         </properties>
       </component>
     </children>
