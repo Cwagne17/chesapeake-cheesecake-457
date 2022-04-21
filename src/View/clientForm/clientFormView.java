@@ -25,8 +25,8 @@ public class clientFormView extends JPanel implements ActionListener {
     private JTextField stateText;
     private JTextField zipText;
     private JTextField typeText;
-    private JButton clientButton;
-
+    private JButton clientCreate;
+    private JButton clientUpdate;
     public clientFormView(String action) {
 
         clientDetails = new JLabel("    Client Details");
@@ -50,34 +50,43 @@ public class clientFormView extends JPanel implements ActionListener {
         zipText = new JTextField(10);
         typeText = new JTextField(15);
 
-        if(action.equals("Read"))
-        {
+        //read form allows for updating the client information
+        if(action.equals("Read")) {
+            //change setText values while connecting view forms to client model
             nameText.setText("name");
+            nameText.setEditable(false);
             emailText.setText("1234@email.com");
+            emailText.setEditable(false);
             phoneText.setText("111-111-1111");
+            phoneText.setEditable(false);
             contactText.setText("Phone");
+            contactText.setEditable(false);
             addressText.setText("1234 St.");
+            addressText.setEditable(false);
             cityText.setText("Baltimore");
+            cityText.setEditable(false);
             stateText.setText("MD");
+            stateText.setEditable(false);
             zipText.setText("11111");
+            zipText.setEditable(false);
             typeText.setText("Individual");
+            typeText.setEditable(false);
 
-            clientButton = new JButton("Update Client");
+            clientUpdate = new JButton("Update Client");
+            clientUpdate.setPreferredSize((new Dimension(200, 50)));
+            clientUpdate.addActionListener(this);
         }
         else if(action.equals("Create")) {
-            clientButton = new JButton("Add Client");
+            clientCreate = new JButton("Add Client");
+            clientCreate.setPreferredSize((new Dimension(200, 50)));
+            clientCreate.addActionListener(this);
         }
         else {
             System.out.println("Error: Not correct input for form.");
             System.exit(0);
         }
-
-        clientButton.setPreferredSize((new Dimension(200, 50)));
-
         setLayout(new GridBagLayout());
         GridBagConstraints grid = new GridBagConstraints();
-
-        clientButton.addActionListener(this);
 
         grid.insets = new Insets(1, 0,1,0);
         grid.weightx = 1;
@@ -174,16 +183,62 @@ public class clientFormView extends JPanel implements ActionListener {
         grid.gridy = 9;
         add(typeText, grid);
 
-        grid.gridwidth = 1;
-        grid.gridheight = 1;
-        grid.gridx = 1;
-        grid.gridy = 11;
-        add(clientButton,grid);
+        //generates button based on which action taken by user
+        if(action.equals("Create")) {
+            grid.gridwidth = 1;
+            grid.gridheight = 1;
+            grid.gridx = 1;
+            grid.gridy = 11;
+            add(clientCreate, grid);
+        } else if (action.equals("Read")) {
+            grid.gridwidth = 1;
+            grid.gridheight = 1;
+            grid.gridx = 1;
+            grid.gridy = 11;
+            add(clientUpdate, grid);
+        }
     }
     //will be used to update and add clients
     //to be merged with client dashboard view
     public void actionPerformed(ActionEvent e)
     {
+        //when in read form and user clicks "Update Client"
+        //sets each value to editable and once model is connected allows user to update info
+        if(clientUpdate.getText().equals("Update Client")) {
+            nameText.setEditable(true);
+            emailText.setEditable(true);
+            phoneText.setEditable(true);
+            contactText.setEditable(true);
+            addressText.setEditable(true);
+            cityText.setEditable(true);
+            stateText.setEditable(true);
+            zipText.setEditable(true);
+            typeText.setEditable(true);
+            clientUpdate.setText("Update");
+
+        } else if(clientUpdate.getText().equals("Update")) {
+            //will allow user to change the information of the record once form is connected to model
+            //values set to non editable after update
+            nameText.setText("Tim");
+            emailText.setText("1234@email.com");
+            phoneText.setText("111-111-1111");
+            contactText.setText("Phone");
+            addressText.setText("1234 St.");
+            cityText.setText("Baltimore");
+            stateText.setText("MD");
+            zipText.setText("11111");
+            typeText.setText("Individual");
+            clientUpdate.setText("Update Client");
+            nameText.setEditable(false);
+            emailText.setEditable(false);
+            phoneText.setEditable(false);
+            contactText.setEditable(false);
+            addressText.setEditable(false);
+            cityText.setEditable(false);
+            stateText.setEditable(false);
+            zipText.setEditable(false);
+            typeText.setEditable(false);
+        }
 
     }
     //Getters
@@ -267,8 +322,23 @@ public class clientFormView extends JPanel implements ActionListener {
         return typeText;
     }
 
-    public JButton getClientButton() {
-        return clientButton;
+    public JButton getClientCreate() {
+        return clientCreate;
+    }
+    public JButton getClientUpdate() {
+        return clientUpdate;
+    }
+    public static void main(String[] args) {
+        //type in create or read for different forms
+        String a = "Read";
+        clientFormView f = new clientFormView(a);
+        JFrame j = new JFrame();
+
+        j.setTitle("Form");
+        j.setSize(600,500);
+        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        j.setVisible(true);
+        j.add(f);
     }
 }
 
