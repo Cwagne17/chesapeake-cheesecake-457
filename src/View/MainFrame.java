@@ -15,13 +15,15 @@ public class MainFrame extends JFrame {
         TestForm testform = new TestForm();
         ClientDashboard clientDash = new ClientDashboard();
 
+
         setLayout(cardLayout);
 
         add(form,"form");
         add(testform, "test");
-
+        add(clientDash, "clientDash");
 
         cardLayout.show(MainFrame.this.getContentPane(), "test");
+        cardLayout.show(MainFrame.this.getContentPane(), "clientDash");
 
         setSize(1200, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
