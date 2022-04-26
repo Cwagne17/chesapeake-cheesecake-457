@@ -342,17 +342,5 @@ public class clientFormView extends JPanel implements ActionListener {
     public JButton getClientCreate() {
         return clientButton;
     }
-    public static void main(String[] args) {
-        //type in create or read for different forms
-        String a = "Create";
-        clientFormView f = new clientFormView(a);
-        JFrame j = new JFrame();
-
-        j.setTitle("Form");
-        j.setSize(600,500);
-        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        j.setVisible(true);
-        j.add(f);
-    }
 }
 
