@@ -25,8 +25,7 @@ public class clientFormView extends JPanel implements ActionListener {
     private JTextField stateText;
     private JTextField zipText;
     private JTextField typeText;
-    private JButton clientCreate;
-    private JButton clientUpdate;
+    private JButton clientButton;
     public clientFormView(String action) {
 
         clientDetails = new JLabel("    Client Details");
@@ -71,15 +70,29 @@ public class clientFormView extends JPanel implements ActionListener {
             zipText.setEditable(false);
             typeText.setText("Individual");
             typeText.setEditable(false);
-
-            clientUpdate = new JButton("Update Client");
-            clientUpdate.setPreferredSize((new Dimension(200, 50)));
-            clientUpdate.addActionListener(this);
+            clientButton = new JButton("Update Client");
+            clientButton.setPreferredSize((new Dimension(200, 50)));
+            clientButton.addActionListener(this);
         }
         else if(action.equals("Create")) {
-            clientCreate = new JButton("Add Client");
-            clientCreate.setPreferredSize((new Dimension(200, 50)));
-            clientCreate.addActionListener(this);
+            clientButton = new JButton("Add Client");
+            clientButton.setPreferredSize((new Dimension(200, 50)));
+            clientButton.addActionListener(this);
+        }
+        else if(action.equals("Update")){
+            // allows user to update info on client, will be connected to model later
+            nameText.setText("name");
+            emailText.setText("1234@email.com");
+            phoneText.setText("111-111-1111");
+            contactText.setText("Phone");
+            addressText.setText("1234 St.");
+            cityText.setText("Baltimore");
+            stateText.setText("MD");
+            zipText.setText("11111");
+            typeText.setText("Individual");
+            clientButton = new JButton("Update");
+            clientButton.setPreferredSize((new Dimension(200, 50)));
+            clientButton.addActionListener(this);
         }
         else {
             System.out.println("Error: Not correct input for form.");
@@ -189,22 +202,26 @@ public class clientFormView extends JPanel implements ActionListener {
             grid.gridheight = 1;
             grid.gridx = 1;
             grid.gridy = 11;
-            add(clientCreate, grid);
-        } else if (action.equals("Read")) {
+            add(clientButton, grid);
+        } else if (action.equals("Update") || action.equals("Read")) {
             grid.gridwidth = 1;
             grid.gridheight = 1;
             grid.gridx = 1;
             grid.gridy = 11;
-            add(clientUpdate, grid);
+            add(clientButton, grid);
         }
     }
     //will be used to update and add clients
     //to be merged with client dashboard view
     public void actionPerformed(ActionEvent e)
     {
+        //will create a new client, will be linked with model later
+        if(clientButton.getText().equals("Create Client")){
+
+        }
         //when in read form and user clicks "Update Client"
         //sets each value to editable and once model is connected allows user to update info
-        if(clientUpdate.getText().equals("Update Client")) {
+        else if(clientButton.getText().equals("Update Client")) {
             nameText.setEditable(true);
             emailText.setEditable(true);
             phoneText.setEditable(true);
@@ -214,9 +231,9 @@ public class clientFormView extends JPanel implements ActionListener {
             stateText.setEditable(true);
             zipText.setEditable(true);
             typeText.setEditable(true);
-            clientUpdate.setText("Update");
+            clientButton.setText("Update");
 
-        } else if(clientUpdate.getText().equals("Update")) {
+        } else if(clientButton.getText().equals("Update")) {
             //will allow user to change the information of the record once form is connected to model
             //values set to non editable after update
             nameText.setText("Tim");
@@ -228,7 +245,7 @@ public class clientFormView extends JPanel implements ActionListener {
             stateText.setText("MD");
             zipText.setText("11111");
             typeText.setText("Individual");
-            clientUpdate.setText("Update Client");
+            clientButton.setText("Update Client");
             nameText.setEditable(false);
             emailText.setEditable(false);
             phoneText.setEditable(false);
@@ -323,10 +340,19 @@ public class clientFormView extends JPanel implements ActionListener {
     }
 
     public JButton getClientCreate() {
-        return clientCreate;
+        return clientButton;
     }
-    public JButton getClientUpdate() {
-        return clientUpdate;
+    public static void main(String[] args) {
+        //type in create or read for different forms
+        String a = "Create";
+        clientFormView f = new clientFormView(a);
+        JFrame j = new JFrame();
+
+        j.setTitle("Form");
+        j.setSize(600,500);
+        j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        j.setVisible(true);
+        j.add(f);
     }
 }
 
