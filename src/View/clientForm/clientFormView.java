@@ -5,6 +5,15 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class clientFormView extends JPanel implements ActionListener {
+    //Strings used to display information on form and send data to other parts of MVC
+    private String name;
+    private String name1;
+    private String name2;
+    private String email;
+    private String address;
+    private String phone;
+    private String preferred;
+    private int individual;
     private JPanel panelFormMain;
     private JLabel clientDetails;
     private JLabel clientName;
@@ -338,7 +347,6 @@ public class clientFormView extends JPanel implements ActionListener {
     public JTextField getTypeText() {
         return typeText;
     }
-
     public JButton getClientCreate() {
         return clientButton;
     }
