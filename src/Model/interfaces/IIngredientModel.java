@@ -1,17 +1,23 @@
 package Model.interfaces;
 
-import Model.dto.CreateIngredientDto;
-import Model.dto.UpdateIngredientDto;
+import Config.errors.StringException;
+import Model.entities.Event;
 import Model.entities.Ingredient;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface IIngredientModel {
 
     public ArrayList<Ingredient> getIngredients();
 
-    public void createIngredient(CreateIngredientDto createIngredientDto);
+    public Ingredient getIngredient(String name) throws SQLException, StringException;
 
-    public void updateIngredient(UpdateIngredientDto updateIngredientDto);
+    public void createIngredient(
+            String name,
+            int stock
+    );
+
+    public void updateIngredient(int stock);
 
 }

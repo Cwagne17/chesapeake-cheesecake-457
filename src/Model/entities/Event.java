@@ -2,11 +2,12 @@ package Model.entities;
 
 import Config.errors.StringException;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Event {
     // PK
-    private String id;
+    private int id;
 
     // Other attrs
     private String delivery_time;
@@ -22,7 +23,14 @@ public class Event {
     private String client_email;
     private String package_name;
 
+    public Event() {}
+
     //Getters
+    public ArrayList<String> getAttributeNames() {
+        String[] attributes = {"id", "delivery_time", "num_guests", "delivery_address", "allergies", "isWeddingEvent", "venue", "budget", "client_email", "package_name"};
+        return new ArrayList<String>(Arrays.asList(attributes));
+    }
+
     public String getDelivery_time() {
         return delivery_time;
     }
@@ -51,7 +59,7 @@ public class Event {
         return delivery_address;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -102,7 +110,7 @@ public class Event {
     }
 
     private void setId(String id) {
-        this.id = id;
+        this.id = Integer.parseInt(id);
     }
 
     public void setAllergies(String allergies) {
