@@ -16,7 +16,6 @@ public class MainFrame extends JFrame {
         super("Java Swing MVC");
         cardLayout = new CardLayout();
         Form form = new Form();
-        TestForm testform = new TestForm();
         ClientDashboard clientDash = new ClientDashboard();
 
 
@@ -42,7 +41,7 @@ public class MainFrame extends JFrame {
         testNav.add(clientTabButton);
 
         clientDash.add(clientNav);
-        testform.add(testNav);
+        form.add(testNav);
 
         MainFrame.this.getContentPane().add(testNav);
         MainFrame.this.getContentPane().add(clientNav);
@@ -52,8 +51,8 @@ public class MainFrame extends JFrame {
         testButton.addActionListener(new ActionListener() {
                  @Override
                  public void actionPerformed(ActionEvent e) {
-                     testform.add(clientTabButton);
-                     MainFrame.this.setContentPane(testform);
+                     form.add(clientTabButton);
+                     MainFrame.this.setContentPane(form);
                      MainFrame.this.invalidate();
                      MainFrame.this.validate();
                  }
