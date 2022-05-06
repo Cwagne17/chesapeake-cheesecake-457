@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class clientFormView extends JPanel implements ActionListener {
+public class ClientForm extends JPanel implements ActionListener {
     //Strings used to display information on form and send data to other parts of MVC
     private String name;
     private String name1;
@@ -35,7 +35,8 @@ public class clientFormView extends JPanel implements ActionListener {
     private JTextField zipText;
     private JTextField typeText;
     private JButton clientButton;
-    public clientFormView(String action) {
+
+    public ClientForm(String action) {
 
         clientDetails = new JLabel("    Client Details");
         clientName = new JLabel("Client Name: ");
