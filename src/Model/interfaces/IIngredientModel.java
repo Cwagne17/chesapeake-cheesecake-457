@@ -18,6 +18,6 @@ public interface IIngredientModel {
             int stock
     ) throws SQLException;
 
-    public void updateIngredient(int stock);
+    public void updateIngredient(String name, int stock) throws SQLException, StringException;
 
 }
