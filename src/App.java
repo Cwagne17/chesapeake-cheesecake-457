@@ -1,16 +1,10 @@
-import Model.entities.Client;
 
-import Model.ClientModel;
+import View.MainFrame;
+
+import javax.swing.*;
 
 public class App {
     public static void main(String[] args) {
-//        SwingUtilities.invokeLater(MainFrame::new);
-        ClientModel client = new ClientModel();
-        try {
-            Client res = client.getClient("test@gmail.com");
-            System.out.println(res.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        SwingUtilities.invokeLater(MainFrame::new);
     }
 }
