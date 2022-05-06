@@ -73,7 +73,7 @@ public class PackageModel implements IPackageModel {
     }
 
     private ArrayList<Package> buildResponse(ResultSet res) throws SQLException, StringException {
-        ArrayList<Package> ingredients = new ArrayList<>();
+        ArrayList<Package> packages = new ArrayList<>();
 
         ArrayList<String> attributes = new Package().getAttributeNames();
         while (res.next()) {
@@ -81,8 +81,8 @@ public class PackageModel implements IPackageModel {
             for(String attr: attributes) {
                 obj.setAttribute(attr, res.getString(attr));
             }
-            ingredients.add(obj);
+            packages.add(obj);
         }
-        return ingredients;
+        return packages;
     }
 }

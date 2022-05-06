@@ -86,7 +86,7 @@ public class OrderModel implements IOrderModel {
     }
 
     private ArrayList<Order> buildResponse(ResultSet res) throws SQLException, StringException {
-        ArrayList<Order> ingredients = new ArrayList<>();
+        ArrayList<Order> orders = new ArrayList<>();
 
         ArrayList<String> attributes = new Order().getAttributeNames();
         while (res.next()) {
@@ -94,8 +94,8 @@ public class OrderModel implements IOrderModel {
             for(String attr: attributes) {
                 obj.setAttribute(attr, res.getString(attr));
             }
-            ingredients.add(obj);
+            orders.add(obj);
         }
-        return ingredients;
+        return orders;
     }
 }
