@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 public interface IIngredientModel {
 
-    public ArrayList<Ingredient> getIngredients();
+    public ArrayList<Ingredient> getIngredients() throws SQLException, StringException;
 
     public Ingredient getIngredient(String name) throws SQLException, StringException;
 
     public void createIngredient(
             String name,
             int stock
-    );
+    ) throws SQLException;
 
     public void updateIngredient(int stock);
 
