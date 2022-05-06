@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public interface IOrderModel {
 
-    public ArrayList<Order> getOrders();
+    public ArrayList<Order> getOrders() throws SQLException, StringException;
 
-    public Event getOrder(String order_client_email, String order_time) throws SQLException, StringException;
+    public Order getOrder(String order_client_email, String order_time) throws SQLException, StringException;
 
     public void createOrder(
          String order_client_email,
@@ -22,9 +22,10 @@ public interface IOrderModel {
     ) throws SQLException;
 
     public void updateOrder(
+            String order_client_email,
             int eventId,
             String paid_date,
             String payment_type
-    ) throws SQLException;
+    ) throws SQLException, StringException;
 
 }

@@ -8,12 +8,11 @@ import java.util.ArrayList;
 
 public interface IPackageModel {
 
-    public ArrayList<Package> getPackages();
+    public ArrayList<Package> getPackages() throws SQLException, StringException;
 
     public Package getPackage(String name) throws SQLException, StringException;
 
-    public void createPackage(String name, double cost);
+    public void createPackage(String name, double cost) throws SQLException;
 
-    public void updatePackage(double cost);
-
+    void updatePackage(String name, double cost) throws SQLException, StringException;
 }

@@ -42,4 +42,12 @@ public class Package {
     public double getCost() {
         return cost;
     }
+
+    @Override
+    public String toString() {
+        return "Package{" +
+                "name='" + name + '\'' +
+                ", cost=" + cost +
+                '}';
+    }
 }

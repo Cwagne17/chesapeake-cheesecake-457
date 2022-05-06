@@ -34,6 +34,6 @@ public interface IEventModel {
         String venue,
         int budget,
         String package_name
-    ) throws SQLException;
+    ) throws SQLException, StringException;
     
 }

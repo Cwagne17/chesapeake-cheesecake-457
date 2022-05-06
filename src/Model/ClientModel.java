@@ -57,6 +57,8 @@ public class ClientModel implements IClientModel {
         stmt.setString(6, name);
         stmt.setString(7, spouse1_name);
         stmt.setString(8, spouse2_name);
+
+        stmt.executeUpdate();
     }
 
     @Override
