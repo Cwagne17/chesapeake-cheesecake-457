@@ -1,12 +1,7 @@
 package Utils;
 
 import Model.entities.Client;
-import View.Client.ClientDashboard;
-import View.MainFrame;
-
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Helpers {
@@ -47,7 +42,6 @@ public class Helpers {
                 }
             }
 
-            System.out.println("GET CLIENT TABLE ROWS");
             i++;
         }
 

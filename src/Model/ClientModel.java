@@ -80,7 +80,7 @@ public class ClientModel implements IClientModel {
         currClient.setAttribute("is_individual", Integer.toString(is_individual));
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "UPDATE  chesapeake457.Client" +
+                "UPDATE chesapeake457.Client" +
                         "SET `phys_addr` = ?, `phone_num` = ?, `pref_contact` = ?, `is_individual` = ?, `name` = ?, `spouse1_name` = ?, `spouse2_name` = ?" +
                         "WHERE (`email_addr` = ?)"
         );

@@ -249,6 +249,7 @@ public class ClientForm extends JPanel implements ActionListener {
         } else if(clientButton.getText().equals("Update")) {
             //will allow user to change the information of the record once form is connected to model
             //values set to non editable after update
+            clientController.updateClient();
             nameText.setText("Tim");
             emailText.setText("1234@email.com");
             phoneText.setText("111-111-1111");
