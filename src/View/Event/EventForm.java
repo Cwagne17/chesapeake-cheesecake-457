@@ -1,6 +1,6 @@
 package View.Event;
 
-import Controller.ClientController;
+//import Controller.EventController;
 
 import javax.swing.*;
 import java.awt.*;
