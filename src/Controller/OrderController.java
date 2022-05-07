@@ -60,21 +60,4 @@ public class OrderController {
 
     }
 
-//    public void updateOrder(){
-//        // submit client
-//        String name = this.form.getNameText().getText().trim();
-//        String phys_addr = this.form.getAddressText().getText().trim();
-//        String email_addr = this.form.getEmailText().getText().trim();
-//        String phone_num = this.form.getPhoneText().getText().trim();
-//        String pref_contact = this.form.getContactText().getText().trim();
-//        int is_individual = 1;
-//
-//        try {
-//            this.clientModel.updateClient(email_addr, email_addr, "","", name, phys_addr, phone_num, pref_contact, is_individual);
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        } catch (StringException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }
