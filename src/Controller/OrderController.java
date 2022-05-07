@@ -32,9 +32,9 @@ public class OrderController {
     public void submitOrder(){
         // submit order
         String order_client_email = this.form.getEmailText().getText().trim();
-        String order_time = this.form.getOrderTime().trim();
-        String paid_date = this.form.getPaidDate().trim();
-        String payment_type = this.form.getPayType().trim();
+        String order_time = this.form.getoTimeText().getText().trim();
+        String paid_date = this.form.getPdText().getText().trim();
+        String payment_type = this.form.getPtText().getText().trim();
         int eventId  = (int)UUID.randomUUID().getLeastSignificantBits();
 
         try {

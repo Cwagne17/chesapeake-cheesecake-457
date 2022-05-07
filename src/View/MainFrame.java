@@ -105,6 +105,9 @@ public class MainFrame extends JFrame {
 
         orderTabButton.addActionListener(e -> {
                 orderDash.add(clientTabButton);
+                orderDash.add(orderUpdateButton);
+                orderDash.add(orderCreateButton);
+                orderDash.add(viewOrderButton);
                 MainFrame.this.setContentPane(orderDash);
                 MainFrame.this.invalidate();
                 MainFrame.this.validate();
@@ -115,8 +118,8 @@ public class MainFrame extends JFrame {
         orderCreateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clientFormCreate.add(clientTabButton);
-                MainFrame.this.setContentPane(clientFormCreate);
+                orderFormCreate.add(orderTabButton);
+                MainFrame.this.setContentPane(orderFormCreate);
                 MainFrame.this.invalidate();
                 MainFrame.this.validate();
             }
@@ -125,8 +128,8 @@ public class MainFrame extends JFrame {
         orderUpdateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clientFormUpdate.add(clientTabButton);
-                MainFrame.this.setContentPane(clientFormUpdate);
+                orderFormUpdate.add(orderTabButton);
+                MainFrame.this.setContentPane(orderFormUpdate);
                 MainFrame.this.invalidate();
                 MainFrame.this.validate();
             }
@@ -140,7 +143,7 @@ public class MainFrame extends JFrame {
                 orderDash.add(orderCreateButton);
                 orderDash.add(viewOrderButton);
                 orderDash.getOrders();
-                MainFrame.this.setContentPane(clientDash);
+                MainFrame.this.setContentPane(orderDash);
                 MainFrame.this.invalidate();
                 MainFrame.this.validate();
             }
