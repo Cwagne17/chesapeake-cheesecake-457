@@ -1,5 +1,6 @@
 package Controller;
 
+import java.awt.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +8,10 @@ import java.util.List;
 import Config.errors.StringException;
 import Model.ClientModel;
 import Model.entities.Client;
+import Utils.Helpers;
 import View.Client.ClientForm;
 import View.Client.ClientDashboard;
+import javax.swing.*;
 
 
 public class ClientController {
@@ -16,18 +19,16 @@ public class ClientController {
     private ClientModel clientModel = new ClientModel();
     private ClientForm form;
     private ClientDashboard dash;
+    private JTable table;
 
     private List<Client> regClients;
 
-    public ClientController(ClientForm form, ClientDashboard dash) {
-        this.form = form;
+    public ClientController(ClientDashboard dash) {
         this.dash = dash;
+    }
 
-        // submit wedding wedding client
-        //this.form.submitWeddingClient
-
-        // load users
-
+    public ClientController(ClientForm form) {
+        this.form = form;
     }
 
     public void submitClient(){
@@ -39,22 +40,19 @@ public class ClientController {
             String pref_contact = this.form.getContactText().getText().trim();
             int is_individual = 1;
 
-            System.out.println(name);
             try {
                 this.clientModel.createClient(email_addr, "", "", name, phys_addr, phone_num, pref_contact, is_individual);
-                System.out.println(name);
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-
     }
 
-
-
-    public List<Client> getClients(){
-
+    public void getClients(){
             try {
                 this.regClients = new ArrayList<>(this.clientModel.getClients());
+                table = Helpers.getClientTableRows(regClients);
+                this.dash.add(table);
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
             } catch (StringException ex) {
@@ -64,7 +62,8 @@ public class ClientController {
             System.out.println(client);
         }
 
-        return regClients;
     }
+
+
 
 }

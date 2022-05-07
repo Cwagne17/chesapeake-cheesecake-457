@@ -1,9 +1,11 @@
 package View;
 
+import Utils.Helpers;
 import View.Client.ClientDashboard;
 import View.Client.ClientForm;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,11 +17,13 @@ public class MainFrame extends JFrame {
     public MainFrame() {
         super("Java Swing MVC");
         cardLayout = new CardLayout();
+
         Form form = new Form();
         ClientDashboard clientDash = new ClientDashboard();
 
         JButton testButton = new JButton("Test Tab");
         JButton clientTabButton = new JButton("Client Tab");
+
 
         ClientForm clientFormUpdate = new ClientForm("Update");
         ClientForm clientFormRead = new ClientForm("Read");
@@ -28,14 +32,12 @@ public class MainFrame extends JFrame {
 
         JButton clientReadButton = new JButton("Client Read");
         JButton clientCreateButton = new JButton("Client Create");
+        JButton viewClientButton = new JButton("View Clients");
 
 
         JPanel clientNav = new JPanel();
         JPanel testNav = new JPanel();
 
-        clientNav.add(clientUpdateButton);
-        clientNav.add(clientReadButton);
-        clientNav.add(clientCreateButton);
 
         testNav.add(clientTabButton);
 
@@ -61,10 +63,13 @@ public class MainFrame extends JFrame {
         clientTabButton.addActionListener(new ActionListener() {
                  @Override
                  public void actionPerformed(ActionEvent e) {
+
                      clientDash.add(testButton);
                      clientDash.add(clientUpdateButton);
                      clientDash.add(clientReadButton);
                      clientDash.add(clientCreateButton);
+                     clientDash.add(viewClientButton);
+
                      MainFrame.this.setContentPane(clientDash);
                      MainFrame.this.invalidate();
                      MainFrame.this.validate();
@@ -101,6 +106,22 @@ public class MainFrame extends JFrame {
                 MainFrame.this.validate();
             }
         });
+
+        viewClientButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clientDash.add(testButton);
+                clientDash.add(clientUpdateButton);
+                clientDash.add(clientReadButton);
+                clientDash.add(clientCreateButton);
+                clientDash.add(viewClientButton);
+                clientDash.getClients();
+                MainFrame.this.setContentPane(clientDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
 
         setSize(1200, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

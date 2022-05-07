@@ -37,7 +37,7 @@ public class ClientForm extends JPanel implements ActionListener {
     private JTextField zipText;
     private JTextField typeText;
     private JButton clientButton;
-    private ClientController clientController = new ClientController(this, new ClientDashboard());
+    private ClientController clientController = new ClientController(this);
 
     public ClientForm(String action) {
 
@@ -231,7 +231,6 @@ public class ClientForm extends JPanel implements ActionListener {
         //will create a new client, will be linked with model later
         if(clientButton.getText().equals("Add Client")){
             clientController.submitClient();
-            clientController.getClients();
         }
         //when in read form and user clicks "Update Client"
         //sets each value to editable and once model is connected allows user to update info
