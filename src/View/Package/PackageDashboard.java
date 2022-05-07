@@ -1,4 +1,18 @@
 package View.Package;
 
-public class PackageDashboard {
+import Controller.OrderController;
+
+import javax.swing.*;
+
+public class PackageDashboard extends JPanel {
+    private PackageController packageController;
+
+    public PackageDashboard() {
+        this.packageController = new PackageController(this);
+    }
+
+
+    public void getPackages() {
+        packageController.getPackages();
+    }
 }
