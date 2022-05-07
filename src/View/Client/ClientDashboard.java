@@ -1,11 +1,8 @@
 package View.Client;
 
 import Controller.ClientController;
-import View.MainFrame;
-
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class ClientDashboard extends JPanel {
     private JButton testFormButton;
@@ -18,7 +15,6 @@ public class ClientDashboard extends JPanel {
     public void getClients() {
         clientController.getClients();
     }
-
 
 }
 

@@ -52,7 +52,6 @@ public class ClientController {
                 this.regClients = new ArrayList<>(this.clientModel.getClients());
                 table = Helpers.getClientTableRows(regClients);
                 this.dash.add(table);
-
             } catch (SQLException ex) {
                 ex.printStackTrace();
             } catch (StringException ex) {
