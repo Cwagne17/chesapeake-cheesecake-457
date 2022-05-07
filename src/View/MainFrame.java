@@ -18,7 +18,6 @@ public class MainFrame extends JFrame {
         Form form = new Form();
         ClientDashboard clientDash = new ClientDashboard();
 
-
         JButton testButton = new JButton("Test Tab");
         JButton clientTabButton = new JButton("Client Tab");
 
@@ -30,10 +29,10 @@ public class MainFrame extends JFrame {
         JButton clientReadButton = new JButton("Client Read");
         JButton clientCreateButton = new JButton("Client Create");
 
+
         JPanel clientNav = new JPanel();
         JPanel testNav = new JPanel();
 
-        //clientNav.add(testButton);
         clientNav.add(clientUpdateButton);
         clientNav.add(clientReadButton);
         clientNav.add(clientCreateButton);

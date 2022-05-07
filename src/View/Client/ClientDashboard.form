@@ -67,7 +67,7 @@
           <text value="phone number"/>
         </properties>
       </component>
-      <component id="a6aae" class="javax.swing.JButton" binding="addClientButton" default-binding="true">
+      <component id="a6aae" class="javax.swing.JButton" binding="viewClientButton">
         <constraints>
           <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
