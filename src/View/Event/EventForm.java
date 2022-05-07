@@ -145,8 +145,7 @@ public class EventForm extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //will create a new client, will be linked with model later
         if (eventButton.getText().equals("Add Event")) {
-            //add the uuid with least significant bits removed that arent needed within this method
-            //eventController.submitEvent();
+           // eventController.submitEvent();
         }
 
     }
