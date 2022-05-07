@@ -5,11 +5,10 @@ import javax.swing.*;
 
 
 public class ClientDashboard extends JPanel {
-    private JButton testFormButton;
-    private ClientController clientController = new ClientController(this);
+    private ClientController clientController;
 
     public ClientDashboard() {
-        add(testFormButton);
+        this.clientController = new ClientController(this);
     }
 
     public void getClients() {

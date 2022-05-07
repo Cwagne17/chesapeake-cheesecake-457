@@ -1,73 +1,62 @@
 package View;
 
-import Utils.Helpers;
 import View.Client.ClientDashboard;
 import View.Client.ClientForm;
+import View.Order.OrderDashboard;
+import View.Order.OrderForm;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-
 public class MainFrame extends JFrame {
     private CardLayout cardLayout;
+    private JPanel mainMenu = new JPanel();
+
+    //Client Panels
+    private ClientForm clientFormCreate = new ClientForm("Create");
+    private ClientForm clientFormUpdate = new ClientForm("Update");
+    private ClientDashboard clientDash = new ClientDashboard();
+
+    //Client Buttons
+    private JButton clientCreateButton = new JButton("Client Create");
+    private JButton clientUpdateButton = new JButton("Client Update");
+    private JButton viewClientButton = new JButton("View Clients");
+    private JButton clientTabButton = new JButton("Client Tab");
+
+    //Order Panels
+    private OrderForm orderFormCreate = new OrderForm("Create");
+    private OrderForm orderFormUpdate = new OrderForm("Update");
+    private OrderDashboard orderDash = new OrderDashboard();
+
+    //Order Buttons
+    private JButton orderCreateButton = new JButton("Order Create");
+    private JButton orderUpdateButton = new JButton("Order Update");
+    private JButton viewOrderButton = new JButton("View Orders");
+    private JButton orderTabButton = new JButton("Order Tab");
 
     public MainFrame() {
         super("Java Swing MVC");
         cardLayout = new CardLayout();
 
-        Form form = new Form();
-        ClientDashboard clientDash = new ClientDashboard();
-
-        JButton testButton = new JButton("Test Tab");
-        JButton clientTabButton = new JButton("Client Tab");
+        mainMenu.add(clientTabButton);
+        mainMenu.add(orderTabButton);
 
 
-        ClientForm clientFormUpdate = new ClientForm("Update");
-        ClientForm clientFormRead = new ClientForm("Read");
-        ClientForm clientFormCreate = new ClientForm("Create");
-        JButton clientUpdateButton = new JButton("Client Update");
-
-        JButton clientReadButton = new JButton("Client Read");
-        JButton clientCreateButton = new JButton("Client Create");
-        JButton viewClientButton = new JButton("View Clients");
-
-
-        JPanel clientNav = new JPanel();
-        JPanel testNav = new JPanel();
-
-
-        testNav.add(clientTabButton);
-
-        clientDash.add(clientNav);
-        form.add(testNav);
-
-        MainFrame.this.getContentPane().add(testNav);
-        MainFrame.this.getContentPane().add(clientNav);
+        MainFrame.this.getContentPane().add(mainMenu);
 
         setLayout(cardLayout);
 
-        testButton.addActionListener(new ActionListener() {
-                 @Override
-                 public void actionPerformed(ActionEvent e) {
-                     form.add(clientTabButton);
-                     MainFrame.this.setContentPane(form);
-                     MainFrame.this.invalidate();
-                     MainFrame.this.validate();
-                 }
-                }
-        );
+        //Client Listeners
+
 
         clientTabButton.addActionListener(new ActionListener() {
                  @Override
                  public void actionPerformed(ActionEvent e) {
 
-                     clientDash.add(testButton);
+                     clientDash.add(orderTabButton);
                      clientDash.add(clientUpdateButton);
-                     clientDash.add(clientReadButton);
                      clientDash.add(clientCreateButton);
                      clientDash.add(viewClientButton);
 
@@ -98,22 +87,11 @@ public class MainFrame extends JFrame {
             }
         });
 
-        clientReadButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clientFormRead.add(clientTabButton);
-                MainFrame.this.setContentPane(clientFormRead);
-                MainFrame.this.invalidate();
-                MainFrame.this.validate();
-            }
-        });
-
         viewClientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                clientDash.add(testButton);
+                clientDash.add(orderTabButton);
                 clientDash.add(clientUpdateButton);
-                clientDash.add(clientReadButton);
                 clientDash.add(clientCreateButton);
                 clientDash.add(viewClientButton);
                 clientDash.getClients();
@@ -123,6 +101,50 @@ public class MainFrame extends JFrame {
             }
         });
 
+        //Order Listeners
+
+        orderTabButton.addActionListener(e -> {
+                orderDash.add(clientTabButton);
+                MainFrame.this.setContentPane(orderDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        );
+
+
+        orderCreateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clientFormCreate.add(clientTabButton);
+                MainFrame.this.setContentPane(clientFormCreate);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        orderUpdateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clientFormUpdate.add(clientTabButton);
+                MainFrame.this.setContentPane(clientFormUpdate);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        viewOrderButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                orderDash.add(clientTabButton);
+                orderDash.add(orderUpdateButton);
+                orderDash.add(orderCreateButton);
+                orderDash.add(viewOrderButton);
+                orderDash.getOrders();
+                MainFrame.this.setContentPane(clientDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
 
         setSize(1200, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,10 +1,12 @@
-package View.Order.orderForm;
+package View.Order;
+import Controller.OrderController;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class orderFormView extends JPanel implements ActionListener {
+public class OrderForm extends JPanel implements ActionListener {
 
     private String products;
     private String clientEmail;
@@ -29,9 +31,11 @@ public class orderFormView extends JPanel implements ActionListener {
     private JTextField ptText;
     private JTextField delAddText;
     private JTextField delTimeText;
-    private JButton orderForm;
+    private JButton orderButton;
 
-    public orderFormView(String o){
+    private OrderController orderController = new OrderController(this);
+
+    public OrderForm(String o){
 
         orderDetails = new JLabel("     Order Details");
         orderProduct = new JLabel("Product: ");
@@ -65,13 +69,13 @@ public class orderFormView extends JPanel implements ActionListener {
             delAddText.setEditable(false);
             delTimeText.setText("3:58");
             delTimeText.setEditable(false);
-            orderForm = new JButton("Update Order");
-            orderForm.setPreferredSize((new Dimension(200, 50)));
-            orderForm.addActionListener(this);
+            orderButton = new JButton("Update Order");
+            orderButton.setPreferredSize((new Dimension(200, 50)));
+            orderButton.addActionListener(this);
         } else if (o.equals("Create")) {
-            orderForm = new JButton("Create Order");
-            orderForm.setPreferredSize((new Dimension(200, 50)));
-            orderForm.addActionListener(this);
+            orderButton = new JButton("Create Order");
+            orderButton.setPreferredSize((new Dimension(200, 50)));
+            orderButton.addActionListener(this);
         }
         else if(o.equals("Update")){
             productText.setText("product1");
@@ -81,9 +85,9 @@ public class orderFormView extends JPanel implements ActionListener {
             ptText.setText("Credit");
             delAddText.setText("1235 St.");
             delTimeText.setText("3:58");
-            orderForm = new JButton("Update");
-            orderForm.setPreferredSize((new Dimension(200, 50)));
-            orderForm.addActionListener(this);
+            orderButton = new JButton("Update");
+            orderButton.setPreferredSize((new Dimension(200, 50)));
+            orderButton.addActionListener(this);
         }
         else{
             System.out.println("Error: Order form view");
@@ -166,15 +170,15 @@ public class orderFormView extends JPanel implements ActionListener {
         grid.gridy = 9;
         grid.gridwidth = 1;
         grid.gridheight = 1;
-        add(orderForm, grid);
+        add(orderButton, grid);
     }
     public void actionPerformed(ActionEvent e){
 
         //will be connected to model and view to get and create data
-        if(e.getSource() == orderForm) {
-            if (orderForm.getText().equals("Create Order")) {
-
-            } else if (orderForm.getText().equals("Update Order")) {
+        if(e.getSource() == orderButton) {
+            if (orderButton.getText().equals("Create Order")) {
+                orderController.submitOrder();
+            } else if (orderButton.getText().equals("Update Order")) {
                 productText.setEditable(true);
                 emailText.setEditable(true);
                 oTimeText.setEditable(true);
@@ -182,8 +186,8 @@ public class orderFormView extends JPanel implements ActionListener {
                 ptText.setEditable(true);
                 delAddText.setEditable(true);
                 delTimeText.setEditable(true);
-                orderForm.setText("Update");
-            } else if (orderForm.getText().equals("Update")) {
+                orderButton.setText("Update");
+            } else if (orderButton.getText().equals("Update")) {
 
                 productText.setText("product1");
                 emailText.setText("1234@email.com");
@@ -192,7 +196,7 @@ public class orderFormView extends JPanel implements ActionListener {
                 ptText.setText("Credit");
                 delAddText.setText("1235 St.");
                 delTimeText.setText("3:58");
-                orderForm.setText("Update Order");
+                orderButton.setText("Update Order");
                 productText.setEditable(false);
                 emailText.setEditable(false);
                 oTimeText.setEditable(false);
@@ -292,7 +296,4 @@ public class orderFormView extends JPanel implements ActionListener {
         return delTimeText;
     }
 
-    public JButton getOrderForm() {
-        return orderForm;
-    }
 }
