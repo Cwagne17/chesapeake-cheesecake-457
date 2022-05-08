@@ -1,9 +1,11 @@
 package View.Order;
+import Config.errors.StringException;
 import Controller.OrderController;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.*;
 
 public class OrderForm extends JPanel implements ActionListener {
@@ -177,7 +179,13 @@ public class OrderForm extends JPanel implements ActionListener {
         //will be connected to model and view to get and create data
         if(e.getSource() == orderButton) {
             if (orderButton.getText().equals("Create Order")) {
-                orderController.submitOrder();
+                try {
+                    orderController.submitOrder();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                } catch (StringException ex) {
+                    ex.printStackTrace();
+                }
             } else if (orderButton.getText().equals("Update Order")) {
                 productText.setEditable(true);
                 emailText.setEditable(true);

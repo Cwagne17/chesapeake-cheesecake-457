@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.UUID;
 
 public class EventForm extends JPanel implements ActionListener {
     //Strings used to display information on form and send data to other parts of MVC
@@ -25,6 +26,8 @@ public class EventForm extends JPanel implements ActionListener {
     private JTextField eventTypeText;
     private JTextField venueText;
     private JTextField budgetText;
+
+    private int eventId = (int) UUID.randomUUID().getLeastSignificantBits(32);
 
     private JButton eventButton;
     //private EventController eventController = new EventController(this);
@@ -145,7 +148,7 @@ public class EventForm extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //will create a new client, will be linked with model later
         if (eventButton.getText().equals("Add Event")) {
-           // eventController.submitEvent();
+           eventController.submitEvent();
         }
 
     }
