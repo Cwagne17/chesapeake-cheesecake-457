@@ -101,8 +101,7 @@ public class MainFrame extends JFrame {
                  @Override
                  public void actionPerformed(ActionEvent e) {
 
-                     clientDash.add(orderTabButton);
-                     clientDash.add(clientUpdateButton);
+                     clientDash.add(mainMenu);
                      clientDash.add(clientCreateButton);
                      clientDash.add(viewClientButton);
 
@@ -123,15 +122,15 @@ public class MainFrame extends JFrame {
             }
         });
 
-        clientUpdateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clientFormUpdate.add(clientTabButton);
-                MainFrame.this.setContentPane(clientFormUpdate);
-                MainFrame.this.invalidate();
-                MainFrame.this.validate();
-            }
-        });
+//        clientUpdateButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                clientFormUpdate.add(clientTabButton);
+//                MainFrame.this.setContentPane(clientFormUpdate);
+//                MainFrame.this.invalidate();
+//                MainFrame.this.validate();
+//            }
+//        });
 
         viewClientButton.addActionListener(new ActionListener() {
             @Override
@@ -151,7 +150,6 @@ public class MainFrame extends JFrame {
 
         orderTabButton.addActionListener(e -> {
                 orderDash.add(clientTabButton);
-                orderDash.add(orderUpdateButton);
                 orderDash.add(orderCreateButton);
                 orderDash.add(viewOrderButton);
                 MainFrame.this.setContentPane(orderDash);
@@ -171,21 +169,20 @@ public class MainFrame extends JFrame {
             }
         });
 
-        orderUpdateButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                orderFormUpdate.add(orderTabButton);
-                MainFrame.this.setContentPane(orderFormUpdate);
-                MainFrame.this.invalidate();
-                MainFrame.this.validate();
-            }
-        });
+//        orderUpdateButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                orderFormUpdate.add(orderTabButton);
+//                MainFrame.this.setContentPane(orderFormUpdate);
+//                MainFrame.this.invalidate();
+//                MainFrame.this.validate();
+//            }
+//        });
 
         viewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                orderDash.add(clientTabButton);
-                orderDash.add(orderUpdateButton);
+                orderDash.add(mainMenu);
                 orderDash.add(orderCreateButton);
                 orderDash.add(viewOrderButton);
                 orderDash.getOrders();
@@ -196,6 +193,142 @@ public class MainFrame extends JFrame {
         });
 
         //Event Listeners
+
+        eventTabButton.addActionListener(e -> {
+                    eventDash.add(mainMenu);
+                    eventDash.add(eventCreateButton);
+                    eventDash.add(viewEventButton);
+                    MainFrame.this.setContentPane(eventDash);
+                    MainFrame.this.invalidate();
+                    MainFrame.this.validate();
+                }
+        );
+
+
+        eventCreateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                eventFormCreate.add(eventTabButton);
+                MainFrame.this.setContentPane(eventFormCreate);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        viewEventButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                eventDash.add(mainMenu);
+                eventDash.add(eventCreateButton);
+                eventDash.add(viewEventButton);
+                eventDash.getEvents();
+                MainFrame.this.setContentPane(orderDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        //Package Listeners
+        packageTabButton.addActionListener(e -> {
+                    packageDash.add(mainMenu);
+                    packageDash.add(packageCreateButton);
+                    packageDash.add(viewPackageButton);
+                    MainFrame.this.setContentPane(packageDash);
+                    MainFrame.this.invalidate();
+                    MainFrame.this.validate();
+                }
+        );
+
+        packageCreateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                packageFormCreate.add(packageTabButton);
+                MainFrame.this.setContentPane(packageFormCreate);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        viewPackageButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                packageDash.add(mainMenu);
+                packageDash.add(packageCreateButton);
+                packageDash.add(viewPackageButton);
+                packageDash.getPackages();
+                MainFrame.this.setContentPane(packageDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        //Product Listeners
+        productTabButton.addActionListener(e -> {
+                    productDash.add(mainMenu);
+                    productDash.add(productCreateButton);
+                    productDash.add(viewProductButton);
+                    MainFrame.this.setContentPane(productDash);
+                    MainFrame.this.invalidate();
+                    MainFrame.this.validate();
+                }
+        );
+
+        productCreateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                productFormCreate.add(productTabButton);
+                MainFrame.this.setContentPane(productFormCreate);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        viewProductButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                productDash.add(mainMenu);
+                productDash.add(productCreateButton);
+                productDash.add(viewProductButton);
+                productDash.getProducts();
+                MainFrame.this.setContentPane(productDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        //Ingredient Listeners
+        ingredientTabButton.addActionListener(e -> {
+                    ingredientDash.add(mainMenu);
+                    ingredientDash.add(ingredientCreateButton);
+                    ingredientDash.add(viewIngredientButton);
+                    MainFrame.this.setContentPane(ingredientDash);
+                    MainFrame.this.invalidate();
+                    MainFrame.this.validate();
+                }
+        );
+
+        ingredientCreateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ingredientFormCreate.add(ingredientTabButton);
+                MainFrame.this.setContentPane(ingredientFormCreate);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
+
+        viewIngredientButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ingredientDash.add(mainMenu);
+                ingredientDash.add(ingredientCreateButton);
+                ingredientDash.add(viewIngredientButton);
+                ingredientDash.getIngredients();
+                MainFrame.this.setContentPane(ingredientDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
+        });
 
 
         setSize(1200, 700);

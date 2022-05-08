@@ -1,6 +1,5 @@
 package Controller;
 
-import java.awt.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.List;
 import Config.errors.StringException;
 import Model.ClientModel;
 import Model.entities.Client;
-import Utils.Helpers;
+import Utils.TableHelpers;
 import View.Client.ClientForm;
 import View.Client.ClientDashboard;
 import javax.swing.*;
@@ -50,7 +49,7 @@ public class ClientController {
     public void getClients(){
             try {
                 this.regClients = new ArrayList<>(this.clientModel.getClients());
-                table = Helpers.getClientTableRows(regClients);
+                table = TableHelpers.getClientTableRows(regClients);
                 this.dash.add(table);
             } catch (SQLException ex) {
                 ex.printStackTrace();

@@ -1,13 +1,9 @@
 package Controller;
 
 import Config.errors.StringException;
-import Model.ClientModel;
 import Model.ProductModel;
-import Model.entities.Client;
 import Model.entities.Product;
-import Utils.Helpers;
-import View.Client.ClientDashboard;
-import View.Client.ClientForm;
+import Utils.TableHelpers;
 import View.Product.ProductDashboard;
 import View.Product.ProductForm;
 
@@ -49,7 +45,7 @@ public class ProductController {
     public void getProducts(){
         try {
             this.products = new ArrayList<>(this.productModel.getProducts());
-            table = Helpers.getProductTableRows(products);
+            table = TableHelpers.getProductTableRows(products);
             this.dash.add(table);
         } catch (SQLException | StringException ex) {
             ex.printStackTrace();

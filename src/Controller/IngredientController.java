@@ -2,14 +2,10 @@ package Controller;
 
 import Config.errors.StringException;
 import Model.IngredientModel;
-import Model.PackageModel;
 import Model.entities.Ingredient;
-import Model.entities.Package;
-import Utils.Helpers;
+import Utils.TableHelpers;
 import View.Ingredient.IngredientDashboard;
 import View.Ingredient.IngredientForm;
-import View.Package.PackageDashboard;
-import View.Package.PackageForm;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -48,7 +44,7 @@ public class IngredientController {
     public void getIngredients() {
         try {
             this.ingredients = new ArrayList<Ingredient>(this.ingredientModel.getIngredients());
-            table = Helpers.getIngredientTableRows(ingredients);
+            table = TableHelpers.getIngredientTableRows(ingredients);
             this.dash.add(table);
         } catch (SQLException | StringException ex) {
             ex.printStackTrace();

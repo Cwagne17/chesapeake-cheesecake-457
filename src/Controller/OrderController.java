@@ -1,11 +1,10 @@
 package Controller;
 
 import Config.errors.StringException;
-import Model.ClientModel;
 import Model.EventModel;
 import Model.entities.Event;
 import Model.entities.Order;
-import Utils.Helpers;
+import Utils.TableHelpers;
 import View.Order.OrderDashboard;
 import View.Order.OrderForm;
 import Model.OrderModel;
@@ -50,7 +49,7 @@ public class OrderController {
     public void getOrders(){
         try {
             this.orders = new ArrayList<>(this.orderModel.getOrders());
-            table = Helpers.getOrderTableRows(orders);
+            table = TableHelpers.getOrderTableRows(orders);
             this.dash.add(table);
         } catch (SQLException ex) {
             ex.printStackTrace();

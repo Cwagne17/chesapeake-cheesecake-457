@@ -6,7 +6,7 @@ import Model.entities.Package;
 import javax.swing.*;
 import java.util.List;
 
-public class Helpers {
+public class TableHelpers {
 
     public static JTable getClientTableRows(List<Client> regClients) {
         //headers for the table

@@ -2,10 +2,8 @@ package Controller;
 
 import Config.errors.StringException;
 import Model.EventModel;
-import Model.OrderModel;
 import Model.entities.Event;
-import Model.entities.Order;
-import Utils.Helpers;
+import Utils.TableHelpers;
 import View.Event.EventDashboard;
 import View.Event.EventForm;
 
@@ -13,7 +11,6 @@ import javax.swing.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class EventController {
     private EventForm form;
@@ -55,7 +52,7 @@ public class EventController {
     public void getEvents(){
         try {
             this.events= new ArrayList<Event>(this.eventModel.getEvents());
-            table = Helpers.getEventTableRows(events);
+            table = TableHelpers.getEventTableRows(events);
             this.dash.add(table);
         } catch (SQLException | StringException ex) {
             ex.printStackTrace();

@@ -2,14 +2,10 @@ package Controller;
 
 import Config.errors.StringException;
 import Model.PackageModel;
-import Model.ProductModel;
 import Model.entities.Package;
-import Model.entities.Product;
-import Utils.Helpers;
+import Utils.TableHelpers;
 import View.Package.PackageDashboard;
 import View.Package.PackageForm;
-import View.Product.ProductDashboard;
-import View.Product.ProductForm;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -49,7 +45,7 @@ public class PackageController {
     public void getPackages(){
         try {
             this.packages = new ArrayList<Package>(this.packageModel.getPackages());
-            table = Helpers.getPackageTableRows(packages);
+            table = TableHelpers.getPackageTableRows(packages);
             this.dash.add(table);
         } catch (SQLException | StringException ex) {
             ex.printStackTrace();
