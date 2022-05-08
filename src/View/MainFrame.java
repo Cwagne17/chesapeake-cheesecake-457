@@ -2,8 +2,16 @@ package View;
 
 import View.Client.ClientDashboard;
 import View.Client.ClientForm;
+import View.Event.EventDashboard;
+import View.Event.EventForm;
+import View.Ingredient.IngredientDashboard;
+import View.Ingredient.IngredientForm;
 import View.Order.OrderDashboard;
 import View.Order.OrderForm;
+import View.Package.PackageDashboard;
+import View.Package.PackageForm;
+import View.Product.ProductDashboard;
+import View.Product.ProductForm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,20 +44,58 @@ public class MainFrame extends JFrame {
     private JButton viewOrderButton = new JButton("View Orders");
     private JButton orderTabButton = new JButton("Order Tab");
 
+    //Event Panels
+    private EventForm eventFormCreate = new EventForm("Create");
+    private EventDashboard eventDash = new EventDashboard();
+
+    //Event Buttons
+    private JButton eventCreateButton = new JButton("Event Create");
+    private JButton viewEventButton = new JButton("View Orders");
+    private JButton eventTabButton = new JButton("Event Tab");
+
+    //Ingredient Panels
+    private IngredientForm ingredientFormCreate = new IngredientForm("Create");
+    private IngredientDashboard ingredientDash = new IngredientDashboard();
+
+    //Ingredient Buttons
+    private JButton ingredientCreateButton = new JButton("Ingredient Create");
+    private JButton viewIngredientButton = new JButton("View Ingredients");
+    private JButton ingredientTabButton = new JButton("Ingredient Tab");
+
+    //Package Panels
+    private PackageForm packageFormCreate = new PackageForm("Create");
+    private PackageDashboard packageDash = new PackageDashboard();
+
+    //Package Buttons
+    private JButton packageCreateButton = new JButton("Package Create");
+    private JButton viewPackageButton = new JButton("View Packages");
+    private JButton packageTabButton = new JButton("Package Tab");
+
+    //Product Panels
+    private ProductForm productFormCreate = new ProductForm("Create");
+    private ProductDashboard productDash = new ProductDashboard();
+
+    //Product Buttons
+    private JButton productCreateButton = new JButton("Product Create");
+    private JButton viewProductButton = new JButton("View Products");
+    private JButton productTabButton = new JButton("Product Tab");
+
     public MainFrame() {
         super("Java Swing MVC");
         cardLayout = new CardLayout();
 
         mainMenu.add(clientTabButton);
         mainMenu.add(orderTabButton);
-
+        mainMenu.add(productTabButton);
+        mainMenu.add(ingredientTabButton);
+        mainMenu.add(eventTabButton);
+        mainMenu.add(packageTabButton);
 
         MainFrame.this.getContentPane().add(mainMenu);
 
         setLayout(cardLayout);
 
         //Client Listeners
-
 
         clientTabButton.addActionListener(new ActionListener() {
                  @Override
@@ -148,6 +194,9 @@ public class MainFrame extends JFrame {
                 MainFrame.this.validate();
             }
         });
+
+        //Event Listeners
+
 
         setSize(1200, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
