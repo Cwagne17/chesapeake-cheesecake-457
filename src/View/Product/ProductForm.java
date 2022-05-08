@@ -1,6 +1,6 @@
 package View.Product;
 
-//import Controller.PackageController;
+import Controller.ProductController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,7 @@ public class ProductForm extends JPanel implements ActionListener {
     private JTextField stockText;
 
     private JButton productButton;
-    //private ProductController productController = new ProductController(this);
+    private ProductController productController = new ProductController(this);
 
     public ProductForm(String action) {
 
@@ -36,7 +36,7 @@ public class ProductForm extends JPanel implements ActionListener {
         stockText = new JTextField(20);
 
         if (action.equals("Create")) {
-            productButton = new JButton("Add Product");
+            productButton = new JButton("Create Product");
             productButton.setPreferredSize((new Dimension(200, 50)));
             productButton.addActionListener(this);
         } else {
@@ -106,9 +106,8 @@ public class ProductForm extends JPanel implements ActionListener {
     //to be merged with client dashboard view
     public void actionPerformed(ActionEvent e) {
         //will create a new client, will be linked with model later
-        if (productButton.getText().equals("Add Product")) {
-
-            //productController.submitProduct();
+        if (productButton.getText().equals("Create Product")) {
+            productController.submitProduct();
         }
 
     }

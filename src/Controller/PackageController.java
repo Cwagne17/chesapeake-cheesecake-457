@@ -50,5 +50,9 @@ public class PackageController {
         } catch (SQLException | StringException ex) {
             ex.printStackTrace();
         }
+
+        for(Package pack: this.packages){
+            System.out.println(pack);
+        }
     }
 }

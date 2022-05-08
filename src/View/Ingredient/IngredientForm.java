@@ -2,6 +2,8 @@ package View.Ingredient;
 
 //import Controller.IngredientController;
 
+import Controller.IngredientController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,7 +20,7 @@ public class IngredientForm extends JPanel implements ActionListener {
 
 
     private JButton ingButton;
-    //private IngredientController ingredientController = new ingredientController(this);
+    private IngredientController ingredientController = new IngredientController(this);
 
     public IngredientForm(String action) {
 
@@ -30,7 +32,7 @@ public class IngredientForm extends JPanel implements ActionListener {
 
 
         if (action.equals("Create")) {
-            ingButton = new JButton("Add Ingredient");
+            ingButton = new JButton("Create Ingredient");
             ingButton.setPreferredSize((new Dimension(200, 50)));
             ingButton.addActionListener(this);
         } else {
@@ -83,9 +85,8 @@ public class IngredientForm extends JPanel implements ActionListener {
     //to be merged with client dashboard view
     public void actionPerformed(ActionEvent e) {
         //will create a new client, will be linked with model later
-        if (ingButton.getText().equals("Add Ingredient")) {
-            //add the uuid with least significant bits removed that arent needed within this method
-            //ingredientController.submitIngredient();
+        if (ingButton.getText().equals("Create Ingredient")) {
+            ingredientController.submitIngredient();
         }
 
     }

@@ -32,7 +32,6 @@ public class EventForm extends JPanel implements ActionListener {
     private JTextField budgetText;
 
 
-
     private JTextField clientEmailText;
     private JTextField packageNameText;
 
@@ -48,16 +47,22 @@ public class EventForm extends JPanel implements ActionListener {
         eventType = new JLabel("Event Type: ");
         budget = new JLabel("Budget: ");
         venue = new JLabel("Venue: ");
+        clientEmail = new JLabel("Client Email: ");
+        packageName = new JLabel("Package Name: ");
 
         deliveryTimeText = new JTextField(20);
         numGuestsText = new JTextField(20);
         deliveryAddressText = new JTextField(20);
         allergiesText = new JTextField(20);
         eventTypeText = new JTextField(20);
+        budgetText = new JTextField(20);
+        venueText = new JTextField(20);
+        clientEmailText = new JTextField(20);
+        packageNameText = new JTextField(20);
 
 
         if (action.equals("Create")) {
-            eventButton = new JButton("Add Event");
+            eventButton = new JButton("Create Event");
             eventButton.setPreferredSize((new Dimension(200, 50)));
             eventButton.addActionListener(this);
         } else {
@@ -123,7 +128,7 @@ public class EventForm extends JPanel implements ActionListener {
 
         grid.gridx = 1;
         grid.gridy = 1;
-        add(numGuests, grid);
+        add(numGuestsText, grid);
 
 
         grid.gridx = 1;
@@ -172,7 +177,7 @@ public class EventForm extends JPanel implements ActionListener {
     //to be merged with client dashboard view
     public void actionPerformed(ActionEvent e) {
         //will create a new client, will be linked with model later
-        if (eventButton.getText().equals("Add Event")) {
+        if (eventButton.getText().equals("Create Event")) {
             try {
                 eventController.submitEvent();
             } catch (SQLException ex) {

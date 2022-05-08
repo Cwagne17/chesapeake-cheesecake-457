@@ -29,7 +29,7 @@ public class IngredientController {
         this.form = form;
     }
 
-    public void submitPackage(){
+    public void submitIngredient(){
         // submit package
         String name = this.form.getNameText().getText().trim();
         int stock = Integer.valueOf(this.form.getStockText().getText().trim());
@@ -48,6 +48,10 @@ public class IngredientController {
             this.dash.add(table);
         } catch (SQLException | StringException ex) {
             ex.printStackTrace();
+        }
+
+        for(Ingredient ingredient: this.ingredients){
+            System.out.println(ingredient);
         }
     }
 }

@@ -88,7 +88,7 @@ public class ClientForm extends JPanel implements ActionListener {
             clientButton.addActionListener(this);
         }
         else if(action.equals("Create")) {
-            clientButton = new JButton("Add Client");
+            clientButton = new JButton("Create Client");
             clientButton.setPreferredSize((new Dimension(200, 50)));
             clientButton.addActionListener(this);
         }
@@ -229,7 +229,7 @@ public class ClientForm extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e)
     {
         //will create a new client, will be linked with model later
-        if(clientButton.getText().equals("Add Client")){
+        if(clientButton.getText().equals("Create Client")){
             clientController.submitClient();
         }
         //when in read form and user clicks "Update Client"

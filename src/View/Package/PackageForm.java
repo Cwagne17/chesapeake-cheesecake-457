@@ -1,7 +1,7 @@
 package View.Package;
 
 
-//import Controller.PackageController;
+import Controller.PackageController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class PackageForm extends JPanel implements ActionListener {
     private JTextField costText;
 
     private JButton packageButton;
-    //private PackageController packageController = new packageController(this);
+    private PackageController packageController = new PackageController(this);
 
     public PackageForm(String action) {
 
@@ -30,7 +30,7 @@ public class PackageForm extends JPanel implements ActionListener {
 
 
         if (action.equals("Create")) {
-            packageButton = new JButton("Add Ingredient");
+            packageButton = new JButton("Create Package");
             packageButton.setPreferredSize((new Dimension(200, 50)));
             packageButton.addActionListener(this);
         } else {
@@ -83,9 +83,9 @@ public class PackageForm extends JPanel implements ActionListener {
     //to be merged with client dashboard view
     public void actionPerformed(ActionEvent e) {
         //will create a new client, will be linked with model later
-        if (packageButton.getText().equals("Add Ingredient")) {
+        if (packageButton.getText().equals("Create Package")) {
 
-            //packageController.submitPackage();
+            packageController.submitPackage();
         }
 
     }

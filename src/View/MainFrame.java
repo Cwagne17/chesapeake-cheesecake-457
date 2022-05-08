@@ -28,8 +28,8 @@ public class MainFrame extends JFrame {
     private ClientDashboard clientDash = new ClientDashboard();
 
     //Client Buttons
-    private JButton clientCreateButton = new JButton("Client Create");
-    private JButton clientUpdateButton = new JButton("Client Update");
+    private JButton clientCreateButton = new JButton("Create Client");
+    //private JButton clientUpdateButton = new JButton("Client Update");
     private JButton viewClientButton = new JButton("View Clients");
     private JButton clientTabButton = new JButton("Client Tab");
 
@@ -39,8 +39,8 @@ public class MainFrame extends JFrame {
     private OrderDashboard orderDash = new OrderDashboard();
 
     //Order Buttons
-    private JButton orderCreateButton = new JButton("Order Create");
-    private JButton orderUpdateButton = new JButton("Order Update");
+    private JButton orderCreateButton = new JButton("Create Order");
+   // private JButton orderUpdateButton = new JButton("Order Update");
     private JButton viewOrderButton = new JButton("View Orders");
     private JButton orderTabButton = new JButton("Order Tab");
 
@@ -49,8 +49,8 @@ public class MainFrame extends JFrame {
     private EventDashboard eventDash = new EventDashboard();
 
     //Event Buttons
-    private JButton eventCreateButton = new JButton("Event Create");
-    private JButton viewEventButton = new JButton("View Orders");
+    private JButton eventCreateButton = new JButton("Create Event");
+    private JButton viewEventButton = new JButton("View Events");
     private JButton eventTabButton = new JButton("Event Tab");
 
     //Ingredient Panels
@@ -58,7 +58,7 @@ public class MainFrame extends JFrame {
     private IngredientDashboard ingredientDash = new IngredientDashboard();
 
     //Ingredient Buttons
-    private JButton ingredientCreateButton = new JButton("Ingredient Create");
+    private JButton ingredientCreateButton = new JButton("Create Ingredient");
     private JButton viewIngredientButton = new JButton("View Ingredients");
     private JButton ingredientTabButton = new JButton("Ingredient Tab");
 
@@ -67,7 +67,7 @@ public class MainFrame extends JFrame {
     private PackageDashboard packageDash = new PackageDashboard();
 
     //Package Buttons
-    private JButton packageCreateButton = new JButton("Package Create");
+    private JButton packageCreateButton = new JButton("Create Package");
     private JButton viewPackageButton = new JButton("View Packages");
     private JButton packageTabButton = new JButton("Package Tab");
 
@@ -76,7 +76,7 @@ public class MainFrame extends JFrame {
     private ProductDashboard productDash = new ProductDashboard();
 
     //Product Buttons
-    private JButton productCreateButton = new JButton("Product Create");
+    private JButton productCreateButton = new JButton("Create Product");
     private JButton viewProductButton = new JButton("View Products");
     private JButton productTabButton = new JButton("Product Tab");
 
@@ -101,7 +101,12 @@ public class MainFrame extends JFrame {
                  @Override
                  public void actionPerformed(ActionEvent e) {
 
-                     clientDash.add(mainMenu);
+                     clientDash.add(eventTabButton);
+                     clientDash.add(ingredientTabButton);
+                     clientDash.add(orderTabButton);
+                     clientDash.add(packageTabButton);
+                     clientDash.add(productTabButton);
+
                      clientDash.add(clientCreateButton);
                      clientDash.add(viewClientButton);
 
@@ -122,21 +127,15 @@ public class MainFrame extends JFrame {
             }
         });
 
-//        clientUpdateButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                clientFormUpdate.add(clientTabButton);
-//                MainFrame.this.setContentPane(clientFormUpdate);
-//                MainFrame.this.invalidate();
-//                MainFrame.this.validate();
-//            }
-//        });
-
         viewClientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                clientDash.add(eventTabButton);
+                clientDash.add(ingredientTabButton);
                 clientDash.add(orderTabButton);
-                clientDash.add(clientUpdateButton);
+                clientDash.add(packageTabButton);
+                clientDash.add(productTabButton);
+
                 clientDash.add(clientCreateButton);
                 clientDash.add(viewClientButton);
                 clientDash.getClients();
@@ -150,6 +149,11 @@ public class MainFrame extends JFrame {
 
         orderTabButton.addActionListener(e -> {
                 orderDash.add(clientTabButton);
+                orderDash.add(eventTabButton);
+                orderDash.add(ingredientTabButton);
+                orderDash.add(packageTabButton);
+                orderDash.add(productTabButton);
+
                 orderDash.add(orderCreateButton);
                 orderDash.add(viewOrderButton);
                 MainFrame.this.setContentPane(orderDash);
@@ -157,7 +161,6 @@ public class MainFrame extends JFrame {
                 MainFrame.this.validate();
             }
         );
-
 
         orderCreateButton.addActionListener(new ActionListener() {
             @Override
@@ -169,20 +172,15 @@ public class MainFrame extends JFrame {
             }
         });
 
-//        orderUpdateButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                orderFormUpdate.add(orderTabButton);
-//                MainFrame.this.setContentPane(orderFormUpdate);
-//                MainFrame.this.invalidate();
-//                MainFrame.this.validate();
-//            }
-//        });
-
         viewOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                orderDash.add(mainMenu);
+                orderDash.add(clientTabButton);
+                orderDash.add(eventTabButton);
+                orderDash.add(ingredientTabButton);
+                orderDash.add(packageTabButton);
+                orderDash.add(productTabButton);
+
                 orderDash.add(orderCreateButton);
                 orderDash.add(viewOrderButton);
                 orderDash.getOrders();
@@ -195,13 +193,19 @@ public class MainFrame extends JFrame {
         //Event Listeners
 
         eventTabButton.addActionListener(e -> {
-                    eventDash.add(mainMenu);
-                    eventDash.add(eventCreateButton);
-                    eventDash.add(viewEventButton);
-                    MainFrame.this.setContentPane(eventDash);
-                    MainFrame.this.invalidate();
-                    MainFrame.this.validate();
-                }
+                eventDash.add(clientTabButton);
+                eventDash.add(ingredientTabButton);
+                eventDash.add(orderTabButton);
+                eventDash.add(packageTabButton);
+                eventDash.add(productTabButton);
+
+                eventDash.add(eventCreateButton);
+                eventDash.add(viewEventButton);
+
+                MainFrame.this.setContentPane(eventDash);
+                MainFrame.this.invalidate();
+                MainFrame.this.validate();
+            }
         );
 
 
@@ -218,11 +222,16 @@ public class MainFrame extends JFrame {
         viewEventButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                eventDash.add(mainMenu);
+                eventDash.add(clientTabButton);
+                eventDash.add(ingredientTabButton);
+                eventDash.add(orderTabButton);
+                eventDash.add(packageTabButton);
+                eventDash.add(productTabButton);
+
                 eventDash.add(eventCreateButton);
                 eventDash.add(viewEventButton);
                 eventDash.getEvents();
-                MainFrame.this.setContentPane(orderDash);
+                MainFrame.this.setContentPane(eventDash);
                 MainFrame.this.invalidate();
                 MainFrame.this.validate();
             }
@@ -230,9 +239,15 @@ public class MainFrame extends JFrame {
 
         //Package Listeners
         packageTabButton.addActionListener(e -> {
-                    packageDash.add(mainMenu);
+                    packageDash.add(clientTabButton);
+                    packageDash.add(eventTabButton);
+                    packageDash.add(ingredientTabButton);
+                    packageDash.add(orderTabButton);
+                    packageDash.add(productTabButton);
+
                     packageDash.add(packageCreateButton);
                     packageDash.add(viewPackageButton);
+
                     MainFrame.this.setContentPane(packageDash);
                     MainFrame.this.invalidate();
                     MainFrame.this.validate();
@@ -252,7 +267,12 @@ public class MainFrame extends JFrame {
         viewPackageButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                packageDash.add(mainMenu);
+                packageDash.add(clientTabButton);
+                packageDash.add(eventTabButton);
+                packageDash.add(ingredientTabButton);
+                packageDash.add(orderTabButton);
+                packageDash.add(productTabButton);
+
                 packageDash.add(packageCreateButton);
                 packageDash.add(viewPackageButton);
                 packageDash.getPackages();
@@ -264,7 +284,12 @@ public class MainFrame extends JFrame {
 
         //Product Listeners
         productTabButton.addActionListener(e -> {
-                    productDash.add(mainMenu);
+                    productDash.add(clientTabButton);
+                    productDash.add(eventTabButton);
+                    productDash.add(ingredientTabButton);
+                    productDash.add(orderTabButton);
+                    productDash.add(packageTabButton);
+
                     productDash.add(productCreateButton);
                     productDash.add(viewProductButton);
                     MainFrame.this.setContentPane(productDash);
@@ -286,7 +311,12 @@ public class MainFrame extends JFrame {
         viewProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                productDash.add(mainMenu);
+                productDash.add(clientTabButton);
+                productDash.add(eventTabButton);
+                productDash.add(ingredientTabButton);
+                productDash.add(orderTabButton);
+                productDash.add(packageTabButton);
+
                 productDash.add(productCreateButton);
                 productDash.add(viewProductButton);
                 productDash.getProducts();
@@ -298,13 +328,18 @@ public class MainFrame extends JFrame {
 
         //Ingredient Listeners
         ingredientTabButton.addActionListener(e -> {
-                    ingredientDash.add(mainMenu);
-                    ingredientDash.add(ingredientCreateButton);
-                    ingredientDash.add(viewIngredientButton);
-                    MainFrame.this.setContentPane(ingredientDash);
-                    MainFrame.this.invalidate();
-                    MainFrame.this.validate();
-                }
+            ingredientDash.add(clientTabButton);
+            ingredientDash.add(eventTabButton);
+            ingredientDash.add(orderTabButton);
+            ingredientDash.add(packageTabButton);
+            ingredientDash.add(productTabButton);
+
+            ingredientDash.add(ingredientCreateButton);
+            ingredientDash.add(viewIngredientButton);
+            MainFrame.this.setContentPane(ingredientDash);
+            MainFrame.this.invalidate();
+            MainFrame.this.validate();
+        }
         );
 
         ingredientCreateButton.addActionListener(new ActionListener() {
@@ -320,7 +355,12 @@ public class MainFrame extends JFrame {
         viewIngredientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ingredientDash.add(mainMenu);
+                ingredientDash.add(clientTabButton);
+                ingredientDash.add(eventTabButton);
+                ingredientDash.add(orderTabButton);
+                ingredientDash.add(packageTabButton);
+                ingredientDash.add(productTabButton);
+
                 ingredientDash.add(ingredientCreateButton);
                 ingredientDash.add(viewIngredientButton);
                 ingredientDash.getIngredients();
