@@ -155,11 +155,94 @@ public class Helpers {
 
 
     public static JTable getProductTableRows(List<Product> products) {
+        String[] columns = new String[] {
+                "Product Type", "Flavor", "Size", "Stock"
+        };
+
+        int i = 0;
+        Object[][] data = new Object[products.size()][4];
+        for (Product product : products) {
+            String type = product.getType().trim();
+            String flavor = product.getFlavor().trim();
+            String size = product.getSize().trim();
+            int stock = product.getStock();
+
+            for(int j = 0; j < 4; j++) {
+                if(j == 0) {
+                    data[i][j] = type;
+                }
+                else if(j == 1){
+                    data[i][j] = flavor;
+                }
+                else if(j == 2){
+                    data[i][j] = size;
+                }
+                else if(j == 3){
+                    data[i][j] = stock;
+                }
+            }
+
+            i++;
+        }
+
+        JTable productTable = new JTable(data, columns);
+        return productTable;
     }
 
     public static JTable getPackageTableRows(List<Package> packages) {
+        String[] columns = new String[] {
+                "Package Name", "Cost"
+        };
+
+        int i = 0;
+        Object[][] data = new Object[packages.size()][2];
+        for (Package pack : packages) {
+
+            String name = pack.getName();
+            double cost = pack.getCost();
+
+            for(int j = 0; j < 2; j++) {
+                if(j == 0) {
+                    data[i][j] = name;
+                }
+                else if(j == 1){
+                    data[i][j] = cost;
+                }
+            }
+
+            i++;
+        }
+
+        JTable packageTable = new JTable(data, columns);
+        return packageTable;
+
     }
 
     public static JTable getIngredientTableRows(List<Ingredient> ingredients) {
+        String[] columns = new String[] {
+                "Ingredient Name", "Stock"
+        };
+
+        int i = 0;
+        Object[][] data = new Object[ingredients.size()][2];
+        for (Ingredient ing : ingredients) {
+            String type = ing.getName().trim();
+            int flavor = ing.getStock();
+
+
+            for(int j = 0; j < 2; j++) {
+                if(j == 0) {
+                    data[i][j] = type;
+                }
+                else if(j == 1){
+                    data[i][j] = flavor;
+                }
+            }
+
+            i++;
+        }
+
+        JTable ingTable = new JTable(data, columns);
+        return ingTable;
     }
 }
