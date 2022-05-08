@@ -51,6 +51,8 @@ public class IngredientModel implements IIngredientModel {
         );
         stmt.setString(1, name);
         stmt.setInt(2, stock);
+
+        stmt.executeUpdate();
     }
 
     @Override

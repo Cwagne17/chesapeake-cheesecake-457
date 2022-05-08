@@ -49,9 +49,5 @@ public class IngredientController {
         } catch (SQLException | StringException ex) {
             ex.printStackTrace();
         }
-
-        for(Ingredient ingredient: this.ingredients){
-            System.out.println(ingredient);
-        }
     }
 }
