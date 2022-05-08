@@ -22,19 +22,6 @@ public class EventController {
     private List<Event> events = new ArrayList<>();
     private JTable table;
 
-    // Other attrs
-    private String delivery_time;
-    private int num_guests;
-    private String delivery_address;
-    private String allergies;
-
-    private int isWeddingEvent;
-    private String venue;
-    private int budget;
-
-    // FK
-    private String client_email;
-    private String package_name;
 
     public EventController(EventDashboard dash) {
         this.dash = dash;

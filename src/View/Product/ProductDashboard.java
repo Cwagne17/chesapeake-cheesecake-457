@@ -1,5 +1,8 @@
 package View.Product;
 
+
+import Controller.ProductController;
+
 import javax.swing.*;
 
 public class ProductDashboard extends JPanel {

@@ -1,5 +1,7 @@
 package View.Ingredient;
 
+import Controller.IngredientController;
+
 import javax.swing.*;
 
 public class IngredientDashboard extends JPanel {

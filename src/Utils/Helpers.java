@@ -1,8 +1,7 @@
 package Utils;
 
-import Model.entities.Client;
-import Model.entities.Event;
-import Model.entities.Order;
+import Model.entities.*;
+import Model.entities.Package;
 
 import javax.swing.*;
 import java.util.List;
@@ -155,4 +154,12 @@ public class Helpers {
     }
 
 
+    public static JTable getProductTableRows(List<Product> products) {
+    }
+
+    public static JTable getPackageTableRows(List<Package> packages) {
+    }
+
+    public static JTable getIngredientTableRows(List<Ingredient> ingredients) {
+    }
 }
