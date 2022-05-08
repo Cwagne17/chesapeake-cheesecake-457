@@ -1,11 +1,11 @@
 package Utils;
 
 import Model.entities.Client;
+import Model.entities.Event;
 import Model.entities.Order;
 
 import javax.swing.*;
 import java.util.List;
-import java.util.UUID;
 
 public class Helpers {
 
@@ -14,6 +14,7 @@ public class Helpers {
         String[] columns = new String[] {
                 "Email Address", "Name", "Physical Address", "Phone Number", "Preferred Contact", "Type"
         };
+
         int i = 0;
         Object[][] data = new Object[regClients.size()][6];
         for (Client client : regClients) {
@@ -88,5 +89,70 @@ public class Helpers {
         JTable orderTable = new JTable(data, columns);
         return orderTable;
     }
+
+    public static JTable getEventTableRows(List<Event> events) {
+        //headers for the table
+        String[] columns = new String[] {
+            "Delivery Time",
+            "Guest Count",
+            "Delivery Address",
+            "Allergies",
+            "Wedding Event",
+            "Venue",
+            "Budget",
+           "Client Email",
+           "Package Name"
+        };
+
+
+
+        int i = 0;
+        Object[][] data = new Object[events.size()][9];
+        for (Event event : events) {
+            String delivery_time = event.getDelivery_time();
+            int num_guests = event.getNum_guests();
+            String delivery_address = event.getDelivery_address();
+            String allergies = event.getAllergies();
+            int isWeddingEvent = event.getIsWeddingEvent();
+            String venue = event.getVenue();
+            int budget = event.getBudget();
+            String client_email = event.getClient_email();
+            String package_name = event.getPackage_name();
+
+            for(int j = 0; j < 9; j++) {
+                if(j == 0) {
+                    data[i][j] = delivery_time;
+                }
+                else if(j == 1){
+                    data[i][j] = num_guests;
+                }
+                else if(j == 2){
+                    data[i][j] = delivery_address;
+                }
+                else if(j == 3){
+                    data[i][j] = allergies;
+                }
+                else if(j == 4){
+                    data[i][j] = "Individual";
+                } else if(j == 5) {
+                    data[i][j] = venue;
+                }
+                else if(j == 6){
+                    data[i][j] = budget;
+                } else if(j == 7){
+                    data[i][j] = client_email;
+                } else if(j == 8){
+                    data[i][j] = package_name;
+                }
+            }
+
+
+            i++;
+        }
+
+        JTable eventTable = new JTable(data, columns);
+        return eventTable;
+    }
+
 
 }

@@ -1,11 +1,13 @@
 package View.Event;
 
-//import Controller.EventController;
+import Config.errors.StringException;
+import Controller.EventController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.UUID;
 
 public class EventForm extends JPanel implements ActionListener {
@@ -18,6 +20,8 @@ public class EventForm extends JPanel implements ActionListener {
     private JLabel eventType;
     private JLabel venue;
     private JLabel budget;
+    private JLabel clientEmail;
+    private JLabel packageName;
 
     private JTextField deliveryTimeText;
     private JTextField numGuestsText;
@@ -27,10 +31,13 @@ public class EventForm extends JPanel implements ActionListener {
     private JTextField venueText;
     private JTextField budgetText;
 
-    private int eventId = (int) UUID.randomUUID().getLeastSignificantBits(32);
+
+
+    private JTextField clientEmailText;
+    private JTextField packageNameText;
 
     private JButton eventButton;
-    //private EventController eventController = new EventController(this);
+    private EventController eventController = new EventController(this);
 
     public EventForm(String action) {
 
@@ -98,6 +105,14 @@ public class EventForm extends JPanel implements ActionListener {
         grid.gridy = 6;
         add(venue, grid);
 
+        grid.gridx = 0;
+        grid.gridy = 7;
+        add(clientEmail, grid);
+
+        grid.gridx = 0;
+        grid.gridy = 8;
+        add(packageName, grid);
+
 
         //Adding all the textfields
         grid.fill = GridBagConstraints.NONE;
@@ -128,10 +143,20 @@ public class EventForm extends JPanel implements ActionListener {
         add(budgetText, grid);
 
         grid.fill = GridBagConstraints.NONE;
+
         grid.gridwidth = 10;
         grid.gridx = 1;
         grid.gridy = 6;
         add(venueText, grid);
+
+        grid.gridx = 1;
+        grid.gridy = 7;
+        add(clientEmailText, grid);
+
+        grid.gridx = 1;
+        grid.gridy = 8;
+        add(packageNameText, grid);
+
 
         //generates button based on which action taken by user
         if (action.equals("Create")) {
@@ -148,25 +173,27 @@ public class EventForm extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //will create a new client, will be linked with model later
         if (eventButton.getText().equals("Add Event")) {
-           eventController.submitEvent();
+            try {
+                eventController.submitEvent();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } catch (StringException ex) {
+                ex.printStackTrace();
+            }
         }
-
     }
 
     //Getters
-    public JTextField getDTText() {
+
+    public JTextField getDeliveryTimeText() {
         return deliveryTimeText;
     }
 
-    public JTextField getGuestCountText() {
+    public JTextField getNumGuestsText() {
         return numGuestsText;
     }
 
-    public JTextField getPhoneText() {
-        return deliveryAddressText;
-    }
-
-    public JTextField getContactText() {
+    public JTextField getAllergiesText() {
         return allergiesText;
     }
 
@@ -181,5 +208,19 @@ public class EventForm extends JPanel implements ActionListener {
     public JTextField getBudgetText() {
         return budgetText;
     }
+
+    public JTextField getClientEmailText() {
+        return clientEmailText;
+    }
+
+    public JTextField getPackageNameText() {
+        return packageNameText;
+    }
+
+    public JTextField getDeliveryAddressText() {
+        return deliveryAddressText;
+    }
+
+
 }
 
