@@ -81,16 +81,16 @@ public class ClientModel implements IClientModel {
 
         PreparedStatement stmt = this.conn.prepareStatement(
                 "UPDATE  chesapeake457.Client" +
-                        "SET `phys_addr` = ?, `phone_num` = ?, `pref_contact` = ?, `is_individual` = ?, `name` = ?, `spouse1_name` = ?, `spouse2_name` = ?" +
-                        "WHERE (`email_addr` = ?)"
+                        "SET phys_addr = ?, phone_num = ?, pref_contact = ?, name = ?, spouse1_name = ?, spouse2_name = ?, is_individual = ?" +
+                        "WHERE email_addr = ?"
         );
         stmt.setString(1, currClient.getPhys_addr());
         stmt.setString(2, currClient.getPhone_num());
         stmt.setString(3, currClient.getPref_contact());
-        stmt.setInt(4, currClient.getIs_individual());
-        stmt.setString(5, currClient.getName());
-        stmt.setString(6, currClient.getSpouse1_name());
-        stmt.setString(7, currClient.getSpouse2_name());
+        stmt.setString(4, currClient.getName());
+        stmt.setString(5, currClient.getSpouse1_name());
+        stmt.setString(6, currClient.getSpouse2_name());
+        stmt.setInt(7, currClient.getIs_individual());
         stmt.setString(8, email);
 
         stmt.executeUpdate();

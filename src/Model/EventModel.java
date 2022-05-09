@@ -55,7 +55,7 @@ public class EventModel implements IEventModel {
     ) throws SQLException {
         PreparedStatement stmt = this.conn.prepareStatement(
                 "INSERT INTO chesapeake457.Event" +
-                    "(delivery_time, num_guests, delivery_address, allergies, isWeddingEvent, venu, budget, client_email, package_name)" +
+                    "(delivery_time, num_guests, delivery_address, allergies, isWeddingEvent, venue, budget, client_email, package_name)" +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
         stmt.setString(1, delivery_time);

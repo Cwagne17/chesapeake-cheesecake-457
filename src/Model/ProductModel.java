@@ -2,11 +2,9 @@ package Model;
 
 import Config.ConnectionManager;
 import Config.errors.StringException;
-import Model.entities.Package;
 import Model.entities.Product;
 import Model.interfaces.IProductModel;
 import Model.shared.Validator;
-import jdk.incubator.foreign.VaList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
