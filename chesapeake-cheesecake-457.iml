@@ -28,8 +28,7 @@
         <jarDirectory url="file://$MODULE_DIR$/../mysql-connector-java-8.0.28" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="mysql-connector-java-8.0.16 2" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.16" level="project" />
-    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.29" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.161" level="project" />
   </component>
 </module>

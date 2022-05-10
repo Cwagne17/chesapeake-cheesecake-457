@@ -2,10 +2,10 @@ package Model;
 
 import Config.ConnectionManager;
 import Config.errors.StringException;
-import Model.entities.Package;
 import Model.entities.Product;
 import Model.interfaces.IProductModel;
 import Model.shared.Validator;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
