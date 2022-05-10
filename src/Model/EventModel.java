@@ -30,12 +30,12 @@ public class EventModel implements IEventModel {
     }
 
     @Override
-    public Event getEvent(String id) throws SQLException, StringException {
+    public Event getEvent(String client_email) throws SQLException, StringException {
         PreparedStatement stmt = this.conn.prepareStatement(
                 "SELECT * " +
                         "FROM chesapeake457.Event " +
-                        "WHERE id = ?");
-        stmt.setString(1, id);
+                        "WHERE client_email = ?");
+        stmt.setString(1, client_email);
         ResultSet res = stmt.executeQuery();
         ArrayList<Event> events = this.buildResponse(res);
         return events.get(0);
